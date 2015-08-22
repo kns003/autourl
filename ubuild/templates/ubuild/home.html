@@ -1,0 +1,120 @@
+<html>
+
+<head>
+<script type="text/javascript" src="{{STATIC_URL}}darkly/jquery-1.10.2.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<title>uRl</title>
+</head>
+<body>
+
+
+
+        <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+      <div class="container">
+        <div class="navbar-header-solid">
+           <a class="navbar-brand" href="#"> <i class="fa fa-play-circle-o fa-1x">BrandName</i></a>
+                      
+        </div>
+    
+        <div class="col-md-6">
+          
+
+        </div>  
+
+
+           <ul class="nav navbar-nav navbar-right">
+        
+          {% if user.is_authenticated %}
+            <li class="dropdown">
+          <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i><b> {{ user.first_name.capitalize }} </b><span class="caret"></span></a>
+        </li>
+            
+           <li><a href="#"><i class="fa fa-sign-out"></i> <b>Logout</b></a></li>
+    
+            {% else %}
+          <li>
+              <a href="#"><i class="fa fa-google-plus fa-2x"> Sign In</i></a>
+          </li>     
+           {% endif %}
+                 
+          </ul> </div>
+      </div>
+    </header>
+    <!-- <br/> -->
+    <br/>
+   <div class="container">
+   <div class="row">
+   
+   
+<br>
+<br>
+<div class="container">
+ 
+	<form class="form-horizontal" action="/ubuild/create/" method="POST">
+<fieldset>
+{% csrf_token %} 
+<!-- Form Name -->
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Method">Method</label>
+  <div class="col-md-4">
+    <select id="Method" name="method" class="form-control">
+      <option value="GET">GET</option>
+      <option value="PUT">PUT</option>
+      <option value="POST">POST</option>
+      <option value="DELETE">DELETE</option>
+    </select>
+  </div>
+</div>
+
+<!-- Select Multiple -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="App">App</label>
+  <div class="col-md-4">
+    <select id="App" name="appname" class="form-control" multiple="multiple">
+    <option>Friendship</option>
+          <option>Funny</option>      
+          <option>Sad</option>
+          <option>Romantic</option>
+          <option>Others</option>
+    </select>
+  </div>
+</div>  
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="url">url</label>  
+  <div class="col-md-6">
+  <input id="url" name="url" type="text" placeholder="" class="form-control input-md" required="">
+    
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for=""></label>
+  <div class="col-md-8">
+    <button id="" name="" class="btn btn-success" type="submit">Create</button>
+    <button id="reset" name="reset" class="btn btn-danger">Reset</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+
+</div>
+
+
+   </div>
+ <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+</html>

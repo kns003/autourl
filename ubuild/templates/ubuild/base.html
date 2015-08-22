@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<title>uRl</title>
+</head>
+<body>
+
+
+
+        <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+      <div class="container">
+        <div class="navbar-header-solid">
+           <a class="navbar-brand" href="{% url 'home' %}"> <i class="fa fa-play-circle-o fa-1x">BrandName</i></a>
+                      
+        </div>
+    
+        <div class="col-md-6">
+          
+
+        </div>  
+
+
+           <ul class="nav navbar-nav navbar-right">
+        
+          {% if user.is_authenticated %}
+            <li class="dropdown">
+          <a  href="{% url 'home' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i><b> {{ user.first_name.capitalize }} </b><span class="caret"></span></a>
+        </li>
+            
+	         <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> <b>Logout</b></a></li>
+    
+            {% else %}
+          <li><!--a href="{% url 'login' %}">Login</a-->
+              <a href="{% url 'logout' %}"><i class="fa fa-google-plus fa-2x"> Sign In</i></a>
+          </li>     
+           {% endif %}
+                 
+          </ul> </div>
+      </div>
+    </header>
+    <!-- <br/> -->
+    <br/>
+   <div class="container">
+   <div class="row">
+   
+   
+    {% block content %}
+    
+
+
+    {% endblock content %}
+    </div>
+
+
+   </div>
+ 
+</body>
+<!--footer>
+ <p>
+          Built with lots of <span style="color: #C0392B;">♥</span> and little bit of Python
+        </p>
+</footer>
+</div>
+</html>
